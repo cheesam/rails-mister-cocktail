@@ -1,0 +1,12 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cocktails</title>
+</head>
+<body>
+  <h1>All Cocktails</h1>
+    <% @cocktails.each do |cocktail| %>
+        <h2><%= @cocktail.name%></h2>
+    <% end %>
+</body>
+</html>
