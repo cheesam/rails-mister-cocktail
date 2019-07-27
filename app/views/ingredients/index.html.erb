@@ -1,0 +1,12 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ingredients</title>
+</head>
+<body>
+  <h1>All Ingredients</h1>
+    <% @ingredients.each do |ingredient| %>
+        <h2><%= ingredient.name%></h2>
+    <% end %>
+</body>
+</html>
