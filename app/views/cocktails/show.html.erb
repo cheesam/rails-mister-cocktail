@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= @cocktail.name %></title>
-</head>
-<body>
-  <h1><%= @cocktail.name %></h1>
-  <%= link_to "Edit cocktail", edit_cocktail_path %>
-</body>
-</html>
+<div class="container">
+
+  <div>
+    <%= link_to "Back", cocktails_path %>
+  </div>
+
+  <div>
+    <div>
+      <div>
+        <div>
+          <h2><%=  @cocktail.name.capitalize %></h2>
+
+        </div>
+        <h3>Ingredients</h3>
+        <% @cocktail.doses.each do |dose|  %>
+          <div>
+            <p><%= dose.description %> of <%= dose.ingredient.name %></p>
+            <!-- <p class="trash"><i class="far fa-trash-alt"></i></p> -->
+            <%= link_to "🗑", dose_path(dose), method: :delete %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+</div>
