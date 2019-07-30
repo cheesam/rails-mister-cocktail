@@ -1,3 +1,4 @@
+<br>
 <div class="container">
 
   <div>
@@ -11,14 +12,16 @@
           <h2><%=  @cocktail.name.capitalize %></h2>
 
         </div>
-        <h3>Ingredients</h3>
+        <p><strong>Ingredients</strong></p>
         <% @cocktail.doses.each do |dose|  %>
           <div>
             <p><%= dose.description %> of <%= dose.ingredient.name %></p>
-            <!-- <p class="trash"><i class="far fa-trash-alt"></i></p> -->
             <%= link_to "Delete", dose_path(dose), method: :delete %>
           </div>
         <% end %>
+        <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail) %>
+        <br>
+        <%= link_to "Edit cocktail name", edit_cocktail_path %>
 
       </div>
     </div>
