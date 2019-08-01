@@ -36,13 +36,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Frontend Gems
-
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
 
 # CarrierWave
-
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.2'
 
 
