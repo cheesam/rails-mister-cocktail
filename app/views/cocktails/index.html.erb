@@ -6,16 +6,22 @@
 </div>
 <br>
 
-  <div class="container">
-    <div class="cards">
-      <% @cocktails.each do |cocktail| %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-            <%= link_to cocktail.name.capitalize , cocktail_path(cocktail) %>
+  <div class="cards">
+    <% @cocktails.each do |cocktail|  %>
+      <% if cocktail.photo.present? %>
+        <%= link_to cocktail_path(cocktail), {class: "cocktail-name"} do %>
+          <div class="card-category" style="background-image: url(<%= cl_image_path cocktail.photo, crop: :fill %>)" >
+            <p><%= cocktail.name.downcase %></p>
           </div>
-    </div>
-    <br>
+        <% end %>
+      <% else %>
+        <div class="card-category" style="background-image: url(https://www.bbcgoodfood.com/sites/default/files/guide/guide-image/2012/08/cocktail-selection.jpg)" >
+          <p><%= link_to cocktail.name.downcase, cocktail_path(cocktail), {class: "cocktail-name"}%></p>
+        </div>
       <% end %>
+    <% end %>
   </div>
-    <%= link_to "Add a new cocktail", new_cocktail_path %>
+  <br>
+  <%= link_to "Add a new cocktail", new_cocktail_path %>
 
 
