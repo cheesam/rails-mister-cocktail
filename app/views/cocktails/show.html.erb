@@ -11,7 +11,11 @@
         <div>
           <h2><%=  @cocktail.name.capitalize %></h2>
 
-          <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+          <% if @cocktail.photo.present? %>
+            <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src="https://www.bbcgoodfood.com/sites/default/files/guide/guide-image/2012/08/cocktail-selection.jpg" alt="Default cocktail photo">
+          <% end %>
 
         </div>
         <p><strong>Ingredients</strong></p>
